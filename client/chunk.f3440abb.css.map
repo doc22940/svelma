@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "chunk.f3440abb.css",
+  "sources": [
+    "../../../../../../src/components/JSDoc.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n  export let jsdoc\n  export let showHeader = true\n</script>\n\n<style>\n  @media screen and (max-width: 1087px) {\n    .table-wrapper {\n      overflow-x: scroll;\n    }\n  }\n</style>\n\n{#if jsdoc}\n  {#if showHeader}<hr class=\"is-medium\" />{/if}\n\n  <section>\n    {#if showHeader}<h2 class=\"title is-4\">API</h2>{/if}\n\n    <div class=\"table-wrapper\">\n      <table class=\"table is-fullwidth\">\n        <thead>\n          <tr>\n            <th>Name</th>\n            <th>Description</th>\n            <th>Type</th>\n            <th>Values</th>\n            <th>Default</th>\n          </tr>\n        </thead>\n        <tbody>\n          {#each jsdoc as doc}\n            <tr>\n              <td>\n                <code>{doc.name}</code>\n              </td>\n              <td>\n                {@html doc.description}{#if doc.optional}, optional{/if}\n              </td>\n              <td>{(doc.type || []).join(', ')}</td>\n              <td>\n                {@html doc.values || '&mdash;'}\n              </td>\n              <td>\n                {@html ('defaultvalue' in doc && `<code>${doc.defaultvalue}</code>`) || '&mdash;'}\n              </td>\n            </tr>\n          {/each}\n        </tbody>\n      </table>\n    </div>\n  </section>\n{/if}\n"
+  ],
+  "names": [],
+  "mappings": "AAME,OAAO,MAAM,CAAC,GAAG,CAAC,YAAY,MAAM,CAAC,AAAC,CAAC,AACrC,cAAc,eAAC,CAAC,AACd,UAAU,CAAE,MAAM,AACpB,CAAC,AACH,CAAC"
+}
